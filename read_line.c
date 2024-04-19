@@ -11,8 +11,11 @@ char *read_line(void)
 {
 	char *line = NULL;
 	size_t bufsize = 0;
+	ssize_t fread;
 
-	if (getline(&line, &bufsize, stdin) == -1)
+	fread = getline(&line, &bufsize, stdin);
+
+	if (fread == -1)
 	{
 		if (feof(stdin))
 		{
@@ -26,5 +29,5 @@ char *read_line(void)
 			exit(EXIT_FAILURE);
 		}
 	}
-	return (line):
+	return (line);
 }
