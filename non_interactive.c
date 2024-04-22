@@ -1,19 +1,18 @@
 #include <shell.h>
 
-void ineractive(void)
+void non_interactive(void)
 {
-	char *line;
+	char *word;
 	char **args;
 	int status = -1;
 
 	do
 	{
-		printf("$ ");
-		line = read_line();
+		word = read_stream();
 		args = split_line(line);
 		status = exec_args(args);
 
-		free(line);
+		free(word);
 		free(args);
 
 		if (status >= 0)
