@@ -14,7 +14,7 @@ char *read_stream(void);
 void interactive(void);
 void non_interactive(void);
 int process(char **args);
-
+char **split_line(char *line);
 
 #endif /*--SHELL_H--*/
 
