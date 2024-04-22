@@ -15,7 +15,7 @@ void interactive(void);
 void non_interactive(void);
 int process(char **args);
 char **split_line(char *line);
-
+int exec_args(char **args);
 #endif /*--SHELL_H--*/
 
 
