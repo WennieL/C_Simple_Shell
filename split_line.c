@@ -2,38 +2,35 @@
 
 char **split_line(char *line)
 {
-	int bufsize = 1024;
-	int i = 0;
+	int bufsize = 64;
+	int position = 0;
 	char **tokens = malloc(sizeof(char *) * bufsize);
 	char *token;
 
 	if (!token)
 	{
-		frpintf(stderr, "Allocation error in split_line: tokens\n");
+		frpintf(stderr, "Allocation error\n");
 		exit(EXIT_FAILURE);
 	}
 	token = strtok(line, TOK_DELIM);
 	while (token != NULL)
 	{
-		if (token[0] == '#')
+		tokens[position] = token;
+		position++;
+
+		if (position >= bufsize)
 		{
-			break;
-		}
-		tokens[i] = token;
-		i++;
-		
-		if (i >= bufsize)
-		{
-			bufsize += bufsize;
-			tokens = realloc(tokens, bufsize * sizeof(char *));
-			if (!tokens)
+			bufsize += 64;
+			tokens = realloc(tokens, bufsize * sizeof(char*));
+			if (!token)
 			{
-				fprintf(stderr, "Reallocation error in split_line: tokens");
+				fprintf(stderr, "Allocation error\n");
 				exit(EXIT_FAILURE);
 			}
 		}
-                token = strtok(NULL, TOK_DELIM);
+		token = strtok(NULL, TOK_DELIM);
 	}
-        tokens[i] = NULL;
-        return (tokens);
+	tokens[position] = NULL;
+	return (tokens);
 }
+
