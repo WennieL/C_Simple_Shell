@@ -12,47 +12,54 @@
 
 char **argv_arr(char *input)
 {
+	char *input_cpy;
 	char *token;
 	char **array;
 	int count = 0;
 	int i = 0;
 
-	while (*input)
+	input_cpy = strdup(input);
+	if (!input_cpy)
 	{
-		while (*input && strchr(TOK_DELMA, *input))
-			input++;
-		if (*input)
-		{
-			count++;
-
-			while (*input && !strchr(TOK_DELMA, *input))
-				input++;
-		}
-	}
-
-	array = malloc((count + 1) * size(char *));
-	if(array == NULL)
-	{
+		fprintf(stderr, "Allocation error\n");
 		return (NULL);
 	}
 
-	token = strtok(input, TOK_DELMA);
+	token = strtok(input_cpy, TOK_DELMA);
+	while (token != NULL)
+	{
+		count++;
+		toekn = stroke(NULL, TOK_DELMA);
+	}
+
+	array = malloc((count + 1) * size(char *));
+	if(!array)
+	{
+		fprintf(stderr, "Allocation error\n");
+		free(input_cpy)l
+		return (NULL);
+	}
+
+	token = strtok(input_cpy, TOK_DELMA);
 	while (token != NULL)
 	{
 		array[i] = strdup(token);
-		if (array[i] == NULL)
+		if (!array[i])
 		{
+			fprintf(stderr, "Allocation error\n");
 			for (int j = 0; j < i; j++)
 			{
 				free(array[j]);
 			}
 			free(array);
+			free(input_cpy);
 			return (NULL);
 		}
 		i++;
 		token = strtok(NULL, TOK_DELMA);
 	}
 	array[i] = NULL;
-
+	
+	free(input_cpy);
 	return (array);
 }
