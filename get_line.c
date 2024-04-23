@@ -16,6 +16,7 @@ char *get_line(void)
 	if (isatty(STDIN_FILENO))
 	{
 		printf("$ ");
+		fflush(stdout);
 	}
 
 	chars_read = getline(&buffer, &bufsize, stdin);
@@ -23,7 +24,7 @@ char *get_line(void)
 	{
 		if (isatty(STDIN_FILENO))
 		{
-			exit(EXIT_FAILURE);
+			printf('\n');
 		}
 		free(buffer);
 		return (NULL);
