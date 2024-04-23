@@ -9,13 +9,8 @@
 #include <sys/types.h>
 
 /* shell_interactive.c */
-char *read_line(void);
-char *read_stream(void);
-void interactive(void);
-void non_interactive(void);
-int process(char **args);
-char **split_line(char *line);
-int exec_args(char **args);
+char *get_line(void);
+
 #endif /*--SHELL_H--*/
 
 
