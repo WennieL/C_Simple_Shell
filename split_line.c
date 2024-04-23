@@ -1,4 +1,5 @@
 #include <shell.h>
+#define TOK_DELIM " \t\r\n\a"
 
 char **split_line(char *line)
 {
