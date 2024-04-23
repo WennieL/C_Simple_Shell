@@ -11,7 +11,7 @@
 /* shell_interactive.c */
 char *get_line(void);
 char **split_line(char *line);
-void execute_command(char **args);
+int execute_command(char **args);
 
 
 #endif /*--SHELL_H--*/
