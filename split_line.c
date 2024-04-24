@@ -1,5 +1,5 @@
 #include <shell.h>
-#define TOK_DELIM " \t\r\n\a="
+#define TOK_DELAM " \t\r\n\a="
 
 char **split_line(char *line)
 {
@@ -13,7 +13,7 @@ char **split_line(char *line)
 		frpintf(stderr, "Allocation error\n");
 		exit(EXIT_FAILURE);
 	}
-	token = strtok(line, TOK_DELIM);
+	token = strtok(line, TOK_DELAM);
 	while (token != NULL)
 	{
 		tokens[position] = token;
@@ -29,7 +29,7 @@ char **split_line(char *line)
 				exit(EXIT_FAILURE);
 			}
 		}
-		token = strtok(NULL, TOK_DELIM);
+		token = strtok(NULL, TOK_DELAM);
 	}
 	tokens[position] = NULL;
 	return (tokens);
