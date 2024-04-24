@@ -13,7 +13,7 @@ int execute_command(char **args)
 	}
 	else if (pid == 0)
 	{
-		if (execvp(args[0], args) == -1)
+		if (execve(args[0], args, NULL) == -1)
 		{
 			perror("Error in process: Child process");
 			exit(EXIT_FAILURE);
