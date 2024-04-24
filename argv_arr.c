@@ -10,56 +10,53 @@
  *         or NULL if there is an error
  */
 
-char **argv_arr(char *input)
+char **argv_arr(char *line)
 {
 	char *input_cpy;
 	char *token;
-	char **array;
-	int count = 0;
+	char **tokens;
+	int position = 0;
 	int i = 0;
 
-	input_cpy = strdup(input);
+	input_cpy = strdup(line);
 	if (!input_cpy)
 	{
 		fprintf(stderr, "Allocation error\n");
 		return (NULL);
 	}
-
 	token = strtok(input_cpy, TOK_DELAM);
 	while (token != NULL)
 	{
-		count++;
-		toekn = stroke(NULL, TOK_DELAM);
+		position++;
+		token = stroke(NULL, TOK_DELAM);
 	}
-
-	array = malloc((count + 1) * size(char *));
-	if(!array)
+	tokens = malloc((position + 1) * size(char *));
+	if(!tokens)
 	{
 		fprintf(stderr, "Allocation error\n");
-		free(input_cpy)l
+		free(input_cpy);
 		return (NULL);
 	}
-
-	token = strtok(input_cpy, TOK_DELAM);
+	token = strtok(line, TOK_DELAM);
 	while (token != NULL)
 	{
-		array[i] = strdup(token);
-		if (!array[i])
+		tokens[i] = strdup(token);
+		if (!tokens[i])
 		{
 			fprintf(stderr, "Allocation error\n");
 			for (int j = 0; j < i; j++)
 			{
-				free(array[j]);
+				free(tokens[j]);
 			}
-			free(array);
+			free(tokens);
 			free(input_cpy);
 			return (NULL);
 		}
 		i++;
 		token = strtok(NULL, TOK_DELAM);
 	}
-	array[i] = NULL;
+	tokens[i] = NULL;
 	
 	free(input_cpy);
-	return (array);
+	return (tokens);
 }
