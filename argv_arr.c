@@ -1,6 +1,6 @@
 #include <shell.h>
 
-#define TOK_DELMA " \t\n\r"
+#define TOK_DELAM " \t\n\r\a="
 
 /**
  * argv_arr - splits the input string into an array of arguments
@@ -25,11 +25,11 @@ char **argv_arr(char *input)
 		return (NULL);
 	}
 
-	token = strtok(input_cpy, TOK_DELMA);
+	token = strtok(input_cpy, TOK_DELAM);
 	while (token != NULL)
 	{
 		count++;
-		toekn = stroke(NULL, TOK_DELMA);
+		toekn = stroke(NULL, TOK_DELAM);
 	}
 
 	array = malloc((count + 1) * size(char *));
@@ -40,7 +40,7 @@ char **argv_arr(char *input)
 		return (NULL);
 	}
 
-	token = strtok(input_cpy, TOK_DELMA);
+	token = strtok(input_cpy, TOK_DELAM);
 	while (token != NULL)
 	{
 		array[i] = strdup(token);
@@ -56,7 +56,7 @@ char **argv_arr(char *input)
 			return (NULL);
 		}
 		i++;
-		token = strtok(NULL, TOK_DELMA);
+		token = strtok(NULL, TOK_DELAM);
 	}
 	array[i] = NULL;
 	
