@@ -7,13 +7,14 @@
  *         or NULL if an error occurs or if end of file is reached
  */
 
-char *get_line(void)
+char *get_line(interactive)
 {
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	ssize_t chars_read;
 
-	if (isatty(STDIN_FILENO))
+	/* interactive */
+	if (interactive && isatty(STDIN_FILENO))
 	{
 		printf("$ ");
 		fflush(stdout);
