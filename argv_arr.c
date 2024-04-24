@@ -1,4 +1,5 @@
 #include <shell.h>
+#include <string.h>
 
 #define TOK_DELAM " \t\n\r\a="
 
@@ -12,31 +13,25 @@
 
 char **argv_arr(char *line)
 {
-	char *input_cpy;
 	char *token;
 	char **tokens;
-	int position = 0;
+	int count = 0;
 	int i = 0;
-
-	input_cpy = strdup(line);
-	if (!input_cpy)
-	{
-		fprintf(stderr, "Allocation error\n");
-		return (NULL);
-	}
-	token = strtok(input_cpy, TOK_DELAM);
+	
+	token = strtok(line, TOK_DELAM);
 	while (token != NULL)
 	{
-		position++;
+		count++;
 		token = stroke(NULL, TOK_DELAM);
 	}
-	tokens = malloc((position + 1) * size(char *));
+	
+	tokens = malloc((count + 1) * size(char *));
 	if(!tokens)
 	{
 		fprintf(stderr, "Allocation error\n");
-		free(input_cpy);
 		return (NULL);
 	}
+	
 	token = strtok(line, TOK_DELAM);
 	while (token != NULL)
 	{
@@ -49,7 +44,6 @@ char **argv_arr(char *line)
 				free(tokens[j]);
 			}
 			free(tokens);
-			free(input_cpy);
 			return (NULL);
 		}
 		i++;
@@ -57,6 +51,5 @@ char **argv_arr(char *line)
 	}
 	tokens[i] = NULL;
 	
-	free(input_cpy);
 	return (tokens);
 }
