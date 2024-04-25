@@ -11,7 +11,7 @@
 #include <sys/types.h>
 
 /*---Macros---*/
-#define TOK_DELIM " \t\r\n\a\""
+#define TOK_DELIM " \t\r\n\a"
 extern char **environ;
 
 /*---PROTOTYPES---*/
