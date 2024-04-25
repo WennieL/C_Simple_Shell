@@ -1,4 +1,4 @@
-#include "shell.c"
+#include "shell.h"
 
 /**
  * main - access point to function for shell
