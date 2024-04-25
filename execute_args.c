@@ -18,5 +18,13 @@ int execute_args(char **args)
 	{
 		exit(EXIT_SUCCESS);
 	}
-	return (0);
+
+	if (is_builtin(args[0]))
+	{
+		return (exectue_builtin(args));
+	}
+	else
+	{
+		return (new_process(args));
+	}
 }
