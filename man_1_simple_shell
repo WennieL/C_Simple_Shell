@@ -1,0 +1,42 @@
+# Simple Shell(1) - A basic UNIX command-line interpreter
+
+## NAME              **simple-shell** - a simple UNIX command-line interpreter
+
+## SYNOPSIS          **simple-shell**
+
+## DESCRIPTION       **simple-shell** is a basic command-line interpreter written in C. 
+                     **It provides a minimalistic interface for executing commands and built-in functions. 
+                     **It supports both interactive and non-interactive modes.
+
+## OPTIONS           **There are no command-line options for **simple-shell**.
+
+## USAGE             
+
+**To run **simple-shell** in interactive mode, simply execute the compiled binary:
+./simple-shell       
+
+In interactive mode, you will be prompted with a `$` symbol to enter commands. 
+Type your commands and press Enter to execute them. To exit the shell, type `exit`.
+
+To run **simple-shell** in non-interactive mode, provide input from a stream:
+echo "/bin/ls" | ./simple-shell
+
+### Built-in Commands
+
+- `exit`: Terminate the shell.
+- `env`: Print the current environment variables.
+
+## RETURN VALUE
+
+**simple-shell** returns 0 upon successful execution of commands or built-in functions. 
+  If an error occurs, it returns a non-zero exit status.
+
+## EXAMPLES
+
+1. Run the shell in interactive mode:
+
+./simple-shell
+
+2. Run the shell in non-interactive mode:
+
+echo "/bin/ls" | ./simple-shell
