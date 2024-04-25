@@ -9,7 +9,7 @@
 
 int execute_args(char **args)
 {
-	if (args[0] == 0)
+	if (args[0] == NULL)
 	{
 		return (-1);
 	}
@@ -18,10 +18,15 @@ int execute_args(char **args)
 	{
 		exit(EXIT_SUCCESS);
 	}
-
-	if (is_builtin(args[0]))
+	else if (strcmp(args[0], "env") == 0)
 	{
-		return (exectue_builtin(args));
+		int i = 0;
+		while (environ[i] != NULL)
+		{
+			printf("%s\n", environ[i]);
+			i++;
+		}
+		return (0);
 	}
 	else
 	{
