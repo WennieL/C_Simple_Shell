@@ -19,9 +19,8 @@ USAGE                 To run simple-shell in interactive mode, simply execute th
                       To run simple-shell in non-interactive mode, provide input from a stream:
                       echo "/bin/ls" | ./simple-shell
 
-Built-in Commands     - `exit`: Terminate the shell.
-                      - `env`: Print the current environment variables.
-
+Built-in Commands     `exit`: Terminate the shell.
+                      `env`: Print the current environment variables.
 
 RETURN VALUE          simple-shell  returns 0 upon successful execution of commands or built-in functions. 
                       If an error occurs, it returns a non-zero exit status.
