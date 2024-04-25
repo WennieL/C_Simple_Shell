@@ -12,6 +12,7 @@
 
 /*---Macros---*/
 #define TOK_DELIM " \t\r\n\a\""
+extern char **environ;
 
 /*---PROTOTYPES---*/
 void interactive(void);
