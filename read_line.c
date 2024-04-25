@@ -6,7 +6,7 @@
  * Return: pointer points to the head of the line
  */
 
-char read_line(void)
+char *read_line(void)
 {
 	char *line = NULL;
 	size_t bufsize = 0;
