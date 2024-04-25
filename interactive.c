@@ -1,7 +1,15 @@
 #include "shell.h"
 
 /**
- * interactive: 
+ * interactive - Interactive shell mode
+ *
+ * This function implements the interactive mode of the shell. It continuously
+ * prompts the user with a "$" symbol, reads the input line, splits it into
+ * arguments, and executes the command or built-in function using the
+ * execute_args function. If the execution status is greater than or equal to
+ * zero, the function terminates the program with the provided status code.
+ *
+ * Return: This function does not return.
  */
 
 void interactive(void)
