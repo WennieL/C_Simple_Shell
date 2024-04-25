@@ -17,7 +17,7 @@ char **split_line(char *line)
 
 	if (!tokens)
 	{
-		frpintf(stderr, "Allocation error in split_line: tokens\n");
+		fprintf(stderr, "Allocation error in split_line: tokens\n");
 		exit(EXIT_FAILURE);
 	}
 	token = strtok(line, TOK_DELIM);
