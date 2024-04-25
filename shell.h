@@ -10,12 +10,18 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-/* shell_interactive.c */
-char *get_line(interactive);
+/*---Macros---*/
+#define TOK_DELIM " \t\r\n\a\""
+
+/*---PROTOTYPES---*/
+void interactive(void);
+void non_interactive(void);
+char *read_line(void);
+char *read_stream(void);
 char **split_line(char *line);
-int execute_command(char **args);
-void enviro(void);
-char **argv_arr(char *input);
+int execute_args(char **args);
+int new_process(char **args);
+char *handle_path(const char *command);
 
 
 #endif /*--SHELL_H--*/

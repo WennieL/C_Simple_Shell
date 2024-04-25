@@ -1,5 +1,4 @@
-#include <shell.h>
-#define TOK_DELIM " \t\r\n\a="
+#include "shell.h"
 
 /**
  * split_line - split a string into multiple strings
