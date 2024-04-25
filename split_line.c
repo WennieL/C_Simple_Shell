@@ -1,5 +1,13 @@
 #include <shell.h>
-#define TOK_DELAM " \t\r\n\a="
+#define TOK_DELIM " \t\r\n\a="
+
+/**
+ * split_line - split a string into multiple strings
+ * @line: string to be splited
+ *
+ * Return: pointer points to the new array
+ */
+
 
 char **split_line(char *line)
 {
@@ -10,10 +18,10 @@ char **split_line(char *line)
 
 	if (!tokens)
 	{
-		frpintf(stderr, "Allocation error\n");
+		frpintf(stderr, "Allocation error in split_line: tokens\n");
 		exit(EXIT_FAILURE);
 	}
-	token = strtok(line, TOK_DELAM);
+	token = strtok(line, TOK_DELIM);
 	while (token != NULL)
 	{
 		tokens[position] = token;
@@ -25,11 +33,11 @@ char **split_line(char *line)
 			tokens = realloc(tokens, bufsize * sizeof(char*));
 			if (!tokens)
 			{
-				fprintf(stderr, "Allocation error\n");
+				fprintf(stderr, "Allocation error in split_line: tokens\n");
 				exit(EXIT_FAILURE);
 			}
 		}
-		token = strtok(NULL, TOK_DELAM);
+		token = strtok(NULL, TOK_DELIM);
 	}
 	tokens[position] = NULL;
 	return (tokens);
