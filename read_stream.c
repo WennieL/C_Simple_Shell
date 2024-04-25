@@ -8,8 +8,8 @@
 
 char *read_stream(void)
 {
-	char *line = malloc(sizeof(char) * bufsize);
 	int bufsize = 1024;
+	char *line = malloc(sizeof(char) * bufsize);
 	int i = 0;
 	int word;
 
@@ -19,13 +19,13 @@ char *read_stream(void)
 		exit(EXIT_FAILURE);
 	}
 
-	while (line)
+	while (1)
 	{
 		word = getchar();
 		if (word == EOF)
 		{
 			free(line);
-			exit(EXIT_SUCESS);
+			exit(EXIT_SUCCESS);
 		}
 		else if (word == '\n')
 		{
@@ -40,8 +40,8 @@ char *read_stream(void)
 
 		if (i >= bufsize)
 		{
-			bufsize += bufsize;
-			line = realloc(line, bufsize);
+			bufsize += 1024;
+			line = realloc(line, bufsize * sizeof(char));
 			if (line == NULL)
 			{
 				fprintf(stderr, "Reallocation error in read_stream");
