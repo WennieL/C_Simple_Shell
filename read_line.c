@@ -15,11 +15,13 @@ char *read_line(void)
 	{
 		if (feof(stdin))
 		{
+			/* Free memory if end of file reached */
 			free(line);
 			exit (EXIT_SUCCESS);
 		}
 		else
 		{
+			/* Free memory in case of error */
 			free(line);
 			perror("Error while reading the line from stdin");
 			exit(EXIT_FAILURE);
