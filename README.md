@@ -72,8 +72,8 @@ $
 ```
 
 ## Built-in Commands
-`exit`: Terminate the shell. \n
-`env`: Print the current environment variables.
+- `exit`: Terminate the shell.
+- `env`: Print the current environment variables.
 
 ## Authors
 Please read [AUTHORS](https://github.com/WennieL/C_Simple_Shell/blob/main/AUTHORS) file for details.
