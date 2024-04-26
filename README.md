@@ -1,6 +1,6 @@
 # Simple Shell
 
-Simple Shell is a basic UNIX command-line interpreter written in C. It provides a minimalistic interface for executing commands and built-in functions, suitable for educational purposes or as a starting point for more advanced shell implementations.
+This is a simple shell Unix shell implementation developed as part of the curriclum at Holberton School.
 
 ## Features
 
@@ -18,7 +18,7 @@ Simple Shell is a basic UNIX command-line interpreter written in C. It provides 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/WennieL/simple-shell.git
+   git clone https://github.com/WennieL/C_simple_shell.git
    ```
 
 2. Navigate to the project directory:
@@ -33,26 +33,47 @@ Simple Shell is a basic UNIX command-line interpreter written in C. It provides 
 
 ## Usage
 
-### Interactive Mode
-Run the shell in interactive mode by executing the compiled binary:
+### Interactive Mode: 
 
-   ```bash
-    ./shell
-   ```
-You will be prompted with a $ symbol to enter commands. Type your commands and press Enter to execute them. 
+You will be prompted with a $ symbol to enter commands. 
+Type your commands and press Enter to execute them. 
 To exit the shell, type `exit`.
 
+Your shell should work like this in interactive mode:
+
+```bash
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
+```
 
 ### Non-interactive Mode
+
 You can also run the shell in non-interactive mode by providing input from a stream. 
 For example, you can pipe commands from a file or another program's output:
 
-  ```bash
-  echo "/bin/ls" | ./shell
-  ```
+Your shell should work like this in non-interactive mode:
+
+```bash
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$
+```
 
 ## Built-in Commands
 `exit`: Terminate the shell.
 `env`: Print the current environment variables.
 
-
+## Authors
+Please read [AUTHORS](https://github.com/WennieL/C_Simple_Shell/blob/main/AUTHORS) file for details.
