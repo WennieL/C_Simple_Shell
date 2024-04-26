@@ -39,6 +39,7 @@ char **split_line(char *line)
 		token = strtok(NULL, TOK_DELIM);
 	}
 	tokens[position] = NULL;
+	/* the tokens are passed together as an array */
 	return (tokens);
 }
 
