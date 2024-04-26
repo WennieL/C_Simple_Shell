@@ -2,7 +2,7 @@ Simple Shell(1) - A basic UNIX command-line interpreter
 
 NAME                  simple-shell - a simple UNIX command-line interpreter
 
-SYNOPSIS              simple-shell
+SYNOPSIS              hsh
 
 DESCRIPTION           simple-shell is a basic command-line interpreter written in C. 
                       It provides a minimalistic interface for executing commands and built-in functions. 
@@ -26,7 +26,24 @@ RETURN VALUE          simple-shell  returns 0 upon successful execution of comma
                       If an error occurs, it returns a non-zero exit status.
 
 EXAMPLES              1. Run the shell in interactive mode:
-                         ./simple-shell
+                          
+                          $ ./hsh
+                          ($) /bin/ls
+                          hsh main.c shell.c
+                          ($)
+                          ($) exit
+                          $
 
                       2. Run the shell in non-interactive mode:
-                         echo "/bin/ls" | ./simple-shell
+                          
+                          $ echo "/bin/ls" | ./hsh
+                          hsh main.c shell.c test_ls_2
+                          $
+                          $ cat test_ls_2
+                          /bin/ls
+                          /bin/ls
+                          $
+                          $ cat test_ls_2 | ./hsh
+                          hsh main.c shell.c test_ls_2
+                          hsh main.c shell.c test_ls_2
+                          $
