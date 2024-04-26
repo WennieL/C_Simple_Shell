@@ -11,13 +11,13 @@ DESCRIPTION           simple-shell is a basic command-line interpreter written i
 OPTIONS               There are no command-line options for simple-shell.
 
 USAGE                 To run simple-shell in interactive mode, simply execute the compiled binary:
-                      ./simple-shell       
+                      $ ./hsh       
 
                       In interactive mode, you will be prompted with a `$` symbol to enter commands. 
                       Type your commands and press Enter to execute them. To exit the shell, type `exit`.
 
                       To run simple-shell in non-interactive mode, provide input from a stream:
-                      echo "/bin/ls" | ./simple-shell
+                      $ echo "/bin/ls" | ./hsh
 
 Built-in Commands     `exit`: Terminate the shell.
                       `env`: Print the current environment variables.
