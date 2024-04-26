@@ -23,7 +23,7 @@ This is a simple shell Unix shell implementation developed as part of the curric
 
 2. Navigate to the project directory:
    ```bash
-   cd simple-shell
+   cd C_simple_shell
    ```
 
 3. Compile the source code:
@@ -72,7 +72,7 @@ $
 ```
 
 ## Built-in Commands
-`exit`: Terminate the shell.
+`exit`: Terminate the shell. \n
 `env`: Print the current environment variables.
 
 ## Authors
